@@ -15,11 +15,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import allAction from '../actions/listActions';
 function Home() {
-  const data = useSelector((state) => state).operations;
+  let data=[]
+  data = useSelector((state) => state.operations.data);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  console.log(data);
   return (
     <Container maxWidth='lg'>
       <Box>

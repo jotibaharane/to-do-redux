@@ -11,10 +11,10 @@ const delet = (id) => {
     payload: id,
   };
 };
-const edit = (id, data) => {
+const edit = (data) => {
   return {
     type: 'edit',
-    payload: { id, data },
+    payload: data,
   };
 };
 

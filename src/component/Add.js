@@ -20,10 +20,15 @@ const style = {
 function Add() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const list = useSelector((state) => state.operations.data);
   const [data, setData] = useState('');
 
+  
   const handelAdd = () => {
-    dispatch(allAction.add({ id: uuid(), text: data }));
+let a=[...list,{ id: uuid(), text: data }]
+console.log(a);
+
+    dispatch(allAction.add(a));
     navigate('/');
   };
 
@@ -52,6 +57,7 @@ function Add() {
           </Button>
         </Box>
       </Modal>
+      
     </div>
   );
 }

@@ -19,13 +19,18 @@ const style = {
 function Edit() {
   const id = useParams().id;
   const dispatch = useDispatch();
-  const list = useSelector((state) => state).operations;
+  const list = useSelector((state) => state.operations.data);
   const navigate = useNavigate();
 
   const [data, setData] = useState(list.find((item) => item.id === id).text);
 
+
+
   const handelEdit = () => {
-    dispatch(allAction.edit(id, data));
+    let b=[...list]
+    let i=list.indexOf(list.find((item)=>item.id===id))
+    b.splice(i,1,{id:id,text:data})
+     dispatch(allAction.edit(b));
     navigate('/');
   };
 
